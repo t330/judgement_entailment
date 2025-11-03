@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - sqlite_data:/app
+    environment:
+      - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=haga.settings
+      - USE_POSTGRES=${USE_POSTGRES:-false}
+    command: python manage.py runserver 0.0.0.0:8000
+    networks:
+      - app-network
+
+  # PostgreSQL database (optional - only used when USE_POSTGRES=true)
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=haga_db
+      - POSTGRES_USER=haga_user
+      - POSTGRES_PASSWORD=haga_password
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    profiles:
+      - postgres
+
+volumes:
+  postgres_data:
+  sqlite_data:
+
+networks:
+  app-network:
+    driver: bridge

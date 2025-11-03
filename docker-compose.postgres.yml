@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    environment:
+      - USE_POSTGRES=true
+      - DJANGO_SETTINGS_MODULE=haga.docker_settings
+    depends_on:
+      - db
+
+  db:
+    profiles: []  # Always start when using this override
