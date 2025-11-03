@@ -13,7 +13,7 @@ This API provides two main functionalities:
 - **LLM Integration** - Powered by Ollama local language models
 - **Batch Processing** - Support for single or bulk sentence generation (up to 100 pairs)
 - **Semantic Analysis** - Entailment judgement between sentence pairs
-- **REST API** - RESTful endpoints with JSON responses powered
+- **REST API** - RESTful endpoints with JSON responses
 
 ## Installation & Setup
 
