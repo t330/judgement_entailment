@@ -17,8 +17,6 @@ This API provides two main functionalities:
 
 ## Installation & Setup
 
-### Docker Setup
-
 #### Prerequisites
 - **Docker** and **Docker Compose** installed
 
@@ -49,19 +47,19 @@ The application will be available at http://localhost:8000
 
 5. **Test an application:**
 
-1. Open http://localhost:8000
-1. Press F1 button to review F1 implementations
-  - It will take about 40 seconds to show the result of entailment judgement
-1. Press F2 button to review F2 implementations
-  - If the app judges 5 pairs of sentences, it will take about 2 minutes to show the result of entailment judgement
-  - **NOTE:** : Currently the number of sentences that can be generated is set to 5. If you obtanin test 100 pairs of sentences, please follow the steps:
-    1. Change "5" in line 16 and 20 to "100" in myapiapp/sentence_generator.py
-    1. ```bash
-        docker-compose down
-        docker-compose up
-        ```
-    1. Close the current brower tab showing the app and open it again
-    1. Check if F2 button generates 100 pairs of sentences and results of judgement entailment
+    1. Open http://localhost:8000
+    1. Press F1 button to review F1 implementations
+      - It will take about 40 seconds to show the result of entailment judgement
+    1. Press F2 button to review F2 implementations
+      - If the app judges 5 pairs of sentences, it will take about 2 minutes to show the result of entailment judgement
+      - **NOTE:** : Currently the number of sentences that can be generated is set to 5. If you obtanin test 100 pairs of sentences, please follow the steps:
+        1. Change "5" in line 16 and 20 to "100" in myapiapp/sentence_generator.py
+        1. ```bash
+            docker-compose down
+            docker-compose up
+            ```
+        1. Close the current brower tab showing the app and open it again
+        1. Check if F2 button generates 100 pairs of sentences and results of judgement entailment
 
 ## F1 Implementations
 
@@ -121,15 +119,7 @@ curl http://localhost:8000/generate_sentences/
 
 ## F2 Implementations
 
-### 1. Generate Sentences
-**Endpoint:** `GET /generate_sentences/`
-
-**Parameters:**
-- `batch` (optional): Generate multiple pairs (expected to be up to 100)
-
-**Examples:**
-
-# Generate multiple sentence pairs (batch mode)
+### 1. Generate multiple sentence pairs (batch mode)
 ```bash
 curl http://localhost:8000/generate_sentences/?batch=true
 ```
